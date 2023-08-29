@@ -10,16 +10,16 @@ Engine: Over the summer, I looked into several game engines, but Godot seemed to
 
 Similar games: Vampire Survivors, Halls of Torment, Enter The Gungeon, Binding of Isaac
 
-        Vampire Survivors allows you to choose from a number of characters who each possess a different buff and weapon. From there, you choose a level and play it until the timer runs out(a win) or you die. The main difference between 
+Vampire Survivors allows you to choose from a number of characters who each possess a different buff and weapon. From there, you choose a level and play it until the timer runs out(a win) or you die. The main difference between 
         my game and this one is the area traversal. In Vampire Survivors, you just play a specific zone until you die or win, as opposed to my game's planet grid, which will have varied areas on each planet, each area's map 
         being significantly smaller than any in Vampire Survivors. On top of that, Vampire Survivors has specific characters to choose from, no character creation. I will try to borrow it's player upgrade system, which uses money 
         earned in runs to permanently upgrade your stats. 
         
-        Halls of Torment is very similar to Vampire Survivors, just with a Diablo 2-inspired style. It differs mainly in its gear collection system. The player character has armor slots for the chest, head, hands, legs, and feet. 
+Halls of Torment is very similar to Vampire Survivors, just with a Diablo 2-inspired style. It differs mainly in its gear collection system. The player character has armor slots for the chest, head, hands, legs, and feet. 
         Armor pieces can provide defensive bonuses, as well as other buffs. You can permanantly collect these pieces by finding them in a level, then delivering them to a wellkeeper who will allow you to purchase them for use in 
         other runs. Again, the main difference of my game is the area traversal, Halls of Torment is very similar to Vampire Survivors in this respect.
         
-        Enter The Gungeon and Binding of Isaac are very similar in many ways. They both have floors that you complete by beating a boss, and items to find or buy on each level. There are a variety of randomly placed rooms on each 
+Enter The Gungeon and Binding of Isaac are very similar in many ways. They both have floors that you complete by beating a boss, and items to find or buy on each level. There are a variety of randomly placed rooms on each 
         level, some hidden. Both have similar health indicators, with a variety of health items to pick up that affect the player in different ways. Isaac has more varied enemy types, while Enter The Gungeon is focused on 
         acquiring different guns, it also gives the ability to dodge roll. 
         
