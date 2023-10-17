@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dukr0lwj3lgde"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchor_right = 1.233
+anchor_bottom = 1.318
+offset_right = -0.416016
+offset_bottom = -0.0640259
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 178.0
+offset_right = 826.0
+offset_bottom = 434.0
+text = "PlanetCrash"
