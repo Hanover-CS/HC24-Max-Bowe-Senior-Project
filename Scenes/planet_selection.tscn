@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://dm4q0jgf4agly"]
+
+[ext_resource type="Texture2D" uid="uid://bjmqxo4m638b5" path="res://graphics/boss-tile.png" id="1_mqdai"]
+[ext_resource type="Texture2D" uid="uid://dwb42g3uc87gr" path="res://graphics/fight-tile.png" id="2_io5qt"]
+[ext_resource type="Texture2D" uid="uid://cuqma2guc1xuf" path="res://graphics/mystery-tile.png" id="3_atgok"]
+[ext_resource type="Script" path="res://Scenes/planet_selection.gd" id="4_gvta4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2on5"]
+texture = ExtResource("1_mqdai")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3p4u2"]
+texture = ExtResource("2_io5qt")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uttes"]
+texture = ExtResource("3_atgok")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_568oq"]
+sources/0 = SubResource("TileSetAtlasSource_n2on5")
+sources/1 = SubResource("TileSetAtlasSource_3p4u2")
+sources/2 = SubResource("TileSetAtlasSource_uttes")
+
+[node name="PlanetSelection" type="TileMap"]
+tile_set = SubResource("TileSet_568oq")
+format = 2
+script = ExtResource("4_gvta4")
