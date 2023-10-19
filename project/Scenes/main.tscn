@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://cumneqy4qjwuj"]
+[gd_scene load_steps=3 format=3 uid="uid://cumneqy4qjwuj"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dvt1burcnk2jb" path="res://Characters/Player/player.tscn" id="1_hfsx5"]
+[ext_resource type="PackedScene" uid="uid://vpydpt1phtmd" path="res://Scenes/trashcan.tscn" id="2_dlpfi"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_hfsx5")]
+z_index = 10
+position = Vector2(382, 225)
+scale = Vector2(2, 2)
+
+[node name="Trashcan" parent="." instance=ExtResource("2_dlpfi")]
+z_index = -1
+position = Vector2(742, 234)

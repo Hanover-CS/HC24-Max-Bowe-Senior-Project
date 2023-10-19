@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://vpydpt1phtmd"]
+
+[ext_resource type="Texture2D" uid="uid://lr6bka06mgvx" path="res://objects/trashcan.png" id="1_nbs88"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1qn6l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwqan"]
+radius = 83.5183
+
+[node name="Trashcan" type="StaticBody2D"]
+scale = Vector2(0.498956, 0.509137)
+physics_material_override = SubResource("PhysicsMaterial_1qn6l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-3.8147e-06, 1)
+scale = Vector2(6.15625, 6.25)
+texture = ExtResource("1_nbs88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 4
+position = Vector2(0.5, 0.749981)
+shape = SubResource("CircleShape2D_uwqan")
