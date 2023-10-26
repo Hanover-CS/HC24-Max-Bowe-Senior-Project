@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bibymkdsos0fm"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_usrsm"]
+[ext_resource type="Texture2D" uid="uid://cnds1n217eoyw" path="res://graphics/start.png" id="2_o7ltp"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_usrsm")
+
+[node name="StartButton" type="TextureRect" parent="."]
+texture_filter = 3
+layout_mode = 2
+texture = ExtResource("2_o7ltp")
+
+[connection signal="gui_input" from="StartButton" to="." method="_on_start_button_gui_input"]

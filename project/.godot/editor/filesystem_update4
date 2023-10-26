@@ -1,5 +1,6 @@
 res://Characters/Player/player.tscn
+res://Scenes/main_menu.gd
 res://Scenes/main.tscn
 res://Scenes/planet_selection.tscn
-res://Scenes/main_ui.tscn
+res://Scenes/main_menu.tscn
 res://Scenes/trashcan.tscn
