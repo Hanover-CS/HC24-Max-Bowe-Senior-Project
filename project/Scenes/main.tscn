@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cumneqy4qjwuj"]
+[gd_scene load_steps=9 format=3 uid="uid://cumneqy4qjwuj"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ajqug"]
 [ext_resource type="PackedScene" uid="uid://dvt1burcnk2jb" path="res://Characters/Player/player.tscn" id="1_hfsx5"]
 [ext_resource type="PackedScene" uid="uid://vpydpt1phtmd" path="res://Scenes/trashcan.tscn" id="2_dlpfi"]
 [ext_resource type="Texture2D" uid="uid://dwb42g3uc87gr" path="res://graphics/fight-tile.png" id="4_p3l8b"]
 [ext_resource type="Script" path="res://objects/exit_box.gd" id="4_pjqtr"]
+[ext_resource type="PackedScene" uid="uid://cyse6358y3uxq" path="res://Characters/Enemy/enemy_eye.tscn" id="6_o1vlx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y4xhh"]
 
@@ -36,5 +37,8 @@ texture_filter = 3
 position = Vector2(834, 609)
 scale = Vector2(8.25, 2.78125)
 texture = ExtResource("4_p3l8b")
+
+[node name="EyeEnemy" parent="." instance=ExtResource("6_o1vlx")]
+position = Vector2(1351, 245)
 
 [connection signal="body_entered" from="ExitBox" to="." method="_on_exit_box_body_entered"]

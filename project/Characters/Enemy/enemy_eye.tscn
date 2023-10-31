@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyse6358y3uxq"]
+
+[ext_resource type="Script" path="res://Characters/Enemy/enemy_eye.gd" id="1_4nk6o"]
+[ext_resource type="Texture2D" uid="uid://ggdeifwwiada" path="res://Characters/Enemy/enemy_eye.png" id="1_k75hh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n76ef"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ql05u"]
+radius = 21.006
+
+[node name="EyeEnemy" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_4nk6o")
+
+[node name="EyeCollisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n76ef")
+
+[node name="EyeSprite" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_k75hh")
+
+[node name="EyeHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EyeHitbox"]
+shape = SubResource("CircleShape2D_ql05u")

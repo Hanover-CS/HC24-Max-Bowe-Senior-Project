@@ -1,7 +1,8 @@
 CollisionShape2D
 Area2D
-Timer
 Sprite2D
+CharacterBody2D
+Timer
 RichTextLabel
 VSplitContainer
 VBoxContainer
@@ -9,6 +10,5 @@ TextEdit
 TextureRect
 MarginContainer
 StaticBody2D
-CharacterBody2D
 TileMap
 Node2D

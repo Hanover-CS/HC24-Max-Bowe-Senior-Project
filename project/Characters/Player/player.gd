@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+var enemy_in_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +16,8 @@ func _process(delta):
 	velocity = direction * 500
 	move_and_slide()
 	look_at(get_global_mouse_position())
+	enemy_attack()
+	print(enemy_in_range)
 	
 
 func _unhandled_input(event):
@@ -25,3 +31,20 @@ func _unhandled_input(event):
 func _on_attack_timer_timeout():
 	$AttackBox.monitoring = false
 	print("Attack has stopped", $AttackBox.monitoring)
+
+func player():
+	pass
+
+
+func _on_player_hitbox_body_entered(body):
+	if (body.has_method("enemy_eye")):
+		enemy_in_range = true
+
+
+func _on_player_hitbox_body_exited(body):
+	if (body.has_method("enemy_eye")):
+		enemy_in_range = false
+		
+func enemy_attack():
+	if enemy_in_range:
+		print("player took damage")
