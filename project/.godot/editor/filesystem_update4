@@ -1,6 +1,10 @@
+res://Scenes/main_menu.tscn
 res://Characters/Player/player.tscn
 res://Scenes/main.tscn
 res://Scenes/planet_selection.tscn
-res://Scenes/main_menu.tscn
 res://Scenes/trashcan.tscn
 res://Characters/Player/player.gd
+res://Scenes/ExitBox.gd
+res://Scenes/main.gd
+res://objects/exit_box.gd
+res://Characters/Player/AttackBox.gd

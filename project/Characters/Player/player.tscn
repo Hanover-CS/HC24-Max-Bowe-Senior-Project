@@ -1,20 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvt1burcnk2jb"]
+[gd_scene load_steps=6 format=3 uid="uid://dvt1burcnk2jb"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_0l7h8"]
 [ext_resource type="Texture2D" uid="uid://tp76yyvce50h" path="res://Characters/Player/basic-character.png" id="2_hbeue"]
+[ext_resource type="Script" path="res://Characters/Player/AttackBox.gd" id="3_0itig"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbdd5"]
 radius = 12.0
 height = 62.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ui1m"]
+size = Vector2(35, 35)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0l7h8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(2.375, 2.28125)
 texture = ExtResource("2_hbeue")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qbdd5")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackBox" type="Area2D" parent="."]
+monitoring = false
+script = ExtResource("3_0itig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(29.5, 1)
+shape = SubResource("RectangleShape2D_0ui1m")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

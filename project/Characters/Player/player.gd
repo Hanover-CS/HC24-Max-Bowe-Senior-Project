@@ -12,3 +12,16 @@ func _process(delta):
 	velocity = direction * 500
 	move_and_slide()
 	look_at(get_global_mouse_position())
+	
+
+func _unhandled_input(event):
+	# starts player attack
+	if Input.is_action_pressed("player_melee"):
+		$AttackBox.monitoring = true
+		print("attack is going!", $AttackBox.monitoring)
+		$AttackTimer.start(1.2)
+
+
+func _on_attack_timer_timeout():
+	$AttackBox.monitoring = false
+	print("Attack has stopped", $AttackBox.monitoring)
