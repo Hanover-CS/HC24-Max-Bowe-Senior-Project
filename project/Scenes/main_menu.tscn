@@ -15,9 +15,17 @@ theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_usrsm")
 
-[node name="StartButton" type="TextureRect" parent="."]
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 2
+split_offset = 150
+
+[node name="TextEdit" type="RichTextLabel" parent="VSplitContainer"]
+layout_mode = 2
+text = "PlanetCrash"
+
+[node name="StartButton" type="TextureRect" parent="VSplitContainer"]
 texture_filter = 3
 layout_mode = 2
 texture = ExtResource("2_o7ltp")
 
-[connection signal="gui_input" from="StartButton" to="." method="_on_start_button_gui_input"]
+[connection signal="gui_input" from="VSplitContainer/StartButton" to="." method="_on_start_button_gui_input"]

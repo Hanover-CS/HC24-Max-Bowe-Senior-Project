@@ -17,7 +17,8 @@ config/icon="res://Characters/Player/icon.svg"
 
 [display]
 
-window/size/viewport_width=1153
+window/size/viewport_width=2000
+window/size/viewport_height=1500
 
 [input]
 
