@@ -17,20 +17,11 @@ func _process(delta):
 	move_and_slide()
 	look_at(get_global_mouse_position())
 	enemy_attack()
-	print(enemy_in_range)
+	if health <= 0:
+		health = 0
+		player_alive = false
+		get_tree().quit()
 	
-
-func _unhandled_input(event):
-	# starts player attack
-	if Input.is_action_pressed("player_melee"):
-		$AttackBox.monitoring = true
-		print("attack is going!", $AttackBox.monitoring)
-		$AttackTimer.start(1.2)
-
-
-func _on_attack_timer_timeout():
-	$AttackBox.monitoring = false
-	print("Attack has stopped", $AttackBox.monitoring)
 
 func player():
 	pass
@@ -46,5 +37,13 @@ func _on_player_hitbox_body_exited(body):
 		enemy_in_range = false
 		
 func enemy_attack():
-	if enemy_in_range:
+	if enemy_in_range and enemy_attack_cooldown:
+		health = health - 20
 		print("player took damage")
+		enemy_attack_cooldown = false
+		$AttackCooldown.start()
+		print(health)
+
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = true

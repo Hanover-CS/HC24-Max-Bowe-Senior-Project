@@ -1,27 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://bibymkdsos0fm"]
+[gd_scene load_steps=5 format=3 uid="uid://bibymkdsos0fm"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_usrsm"]
 [ext_resource type="Texture2D" uid="uid://cnds1n217eoyw" path="res://graphics/start.png" id="2_o7ltp"]
+
+[sub_resource type="Theme" id="Theme_jwnpo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm8to"]
+font_size = 60
+font_color = Color(0.607843, 0.396078, 0.278431, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0.34902, 0, 1)
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -82.0
+offset_right = 118.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_jwnpo")
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_usrsm")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.439216, 0.580392, 0.603922, 1)
+
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 2
-split_offset = 150
+split_offset = 500
 
-[node name="TextEdit" type="RichTextLabel" parent="VSplitContainer"]
+[node name="TextEdit" type="Label" parent="VSplitContainer"]
 layout_mode = 2
 text = "PlanetCrash"
+label_settings = SubResource("LabelSettings_jm8to")
+horizontal_alignment = 1
+uppercase = true
 
 [node name="StartButton" type="TextureRect" parent="VSplitContainer"]
 texture_filter = 3
