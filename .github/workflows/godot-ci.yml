@@ -26,9 +26,8 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Create staging directory
         run: mkdir -v -p build/html
-
       - name: Build
-        run: godot -v --export-release "HTML5" ../build/html/index.html project/project.godot
+        run: godot -v --headless --export-release "HTML5" ../build/html/index.html project/project.godot
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -39,3 +38,6 @@ jobs:
           user_name: 'github-ci[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Publish to gh-pages'
+
+permissions: 
+    contents: write
