@@ -1,9 +1,7 @@
-res://Characters/Player/player.tscn
+res://Scenes/main.tscn
 res://Characters/Player/player.gd
 res://Characters/Player/player_attack_frames.tres
+res://Characters/Player/player.tscn
 res://Characters/Enemy/enemy_eye.tscn
-res://Scenes/main.tscn
 res://Scenes/main_menu.tscn
 res://test/unit/example_tests.tscn
-res://Characters/Enemy/enemy_eye.gd
-res://Scenes/main_menu.gd
