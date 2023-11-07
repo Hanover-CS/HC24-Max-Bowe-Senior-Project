@@ -12,6 +12,5 @@ func _process(delta):
 
 
 func _on_start_button_gui_input(event):
-	print(event)
 	if event is InputEventMouseButton:
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")

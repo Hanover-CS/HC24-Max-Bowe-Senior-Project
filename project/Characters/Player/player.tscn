@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvt1burcnk2jb"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_0l7h8"]
-[ext_resource type="Texture2D" uid="uid://tp76yyvce50h" path="res://Characters/Player/basic-character.png" id="2_hbeue"]
+[ext_resource type="SpriteFrames" uid="uid://dkwgw24xo6dq2" path="res://Characters/Player/player_attack_frames.tres" id="2_hu31w"]
 [ext_resource type="Script" path="res://Characters/Player/AttackBox.gd" id="3_0itig"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbdd5"]
@@ -18,17 +18,17 @@ height = 76.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0l7h8")
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(2.375, 2.28125)
-texture = ExtResource("2_hbeue")
+sprite_frames = ExtResource("2_hu31w")
 
 [node name="PlayerCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qbdd5")
 
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 0.5
+[node name="EnemyAttackCooldown" type="Timer" parent="."]
+wait_time = 0.85
 one_shot = true
 
 [node name="AttackBox" type="Area2D" parent="."]
@@ -44,6 +44,11 @@ shape = SubResource("RectangleShape2D_0ui1m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 shape = SubResource("CapsuleShape2D_eh60l")
 
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[node name="PlayerAttackCooldown" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[connection signal="timeout" from="EnemyAttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="PlayerAttackCooldown" to="." method="_on_player_attack_cooldown_timeout"]

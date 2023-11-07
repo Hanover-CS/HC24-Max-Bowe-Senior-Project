@@ -24,3 +24,11 @@ texture = ExtResource("1_k75hh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyeHitbox"]
 shape = SubResource("CircleShape2D_ql05u")
+
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 0.539
+one_shot = true
+
+[connection signal="body_entered" from="EyeHitbox" to="." method="_on_eye_hitbox_body_entered"]
+[connection signal="body_exited" from="EyeHitbox" to="." method="_on_eye_hitbox_body_exited"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
