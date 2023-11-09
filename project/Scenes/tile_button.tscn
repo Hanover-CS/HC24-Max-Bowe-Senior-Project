@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://du5iqsx4h8psi"]
+
+[ext_resource type="Script" path="res://Scenes/tile_button.gd" id="1_j32it"]
+
+[node name="TileButton" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_j32it")
+metadata/type = "undefined"
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

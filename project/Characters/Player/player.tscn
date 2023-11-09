@@ -9,7 +9,7 @@ radius = 12.0
 height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ui1m"]
-size = Vector2(35, 35)
+size = Vector2(44, 44.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eh60l"]
 radius = 22.0
@@ -36,7 +36,7 @@ monitoring = false
 script = ExtResource("3_0itig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
-position = Vector2(29.5, 1)
+position = Vector2(34, 8)
 shape = SubResource("RectangleShape2D_0ui1m")
 
 [node name="PlayerHitbox" type="Area2D" parent="."]

@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_exit_box_body_entered(body):
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/tile_selector.tscn")

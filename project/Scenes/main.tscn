@@ -41,9 +41,8 @@ z_index = 10
 position = Vector2(382, 225)
 scale = Vector2(2, 2)
 
-[node name="Trashcan" parent="." instance=ExtResource("2_dlpfi")]
-z_index = -1
-position = Vector2(742, 234)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="ExitBox" type="Area2D" parent="."]
 script = ExtResource("4_pjqtr")
@@ -55,11 +54,14 @@ shape = SubResource("RectangleShape2D_yon3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="ExitBox"]
 texture_filter = 3
-position = Vector2(834, 609)
-scale = Vector2(8.25, 2.78125)
+position = Vector2(835, 606)
+scale = Vector2(3.90625, 3.25)
 texture = ExtResource("4_p3l8b")
 
 [node name="EyeEnemy" parent="." instance=ExtResource("6_o1vlx")]
 position = Vector2(1351, 245)
+
+[node name="Trashcan" parent="." instance=ExtResource("2_dlpfi")]
+position = Vector2(742, 234)
 
 [connection signal="body_entered" from="ExitBox" to="." method="_on_exit_box_body_entered"]
