@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxoenod24woiu"]
+[gd_scene load_steps=10 format=3 uid="uid://bxoenod24woiu"]
 
 [ext_resource type="Texture2D" uid="uid://do6g64qcinv2k" path="res://graphics/ground_tiles.png" id="1_8ulpx"]
 [ext_resource type="Script" path="res://Scenes/fight_scene.gd" id="1_uq82d"]
 [ext_resource type="PackedScene" uid="uid://dvt1burcnk2jb" path="res://Characters/Player/player.tscn" id="2_doovv"]
 [ext_resource type="PackedScene" uid="uid://cyse6358y3uxq" path="res://Characters/Enemy/enemy_eye.tscn" id="5_7ckfi"]
 [ext_resource type="PackedScene" uid="uid://vpydpt1phtmd" path="res://Scenes/trashcan.tscn" id="6_mpgcq"]
+[ext_resource type="PackedScene" uid="uid://c022anm0y0eqv" path="res://objects/exit_box.tscn" id="7_x66wk"]
 [ext_resource type="AudioStream" uid="uid://4ftrrl31knme" path="res://audio/space_sounds.wav" id="8_1cvt8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dtex"]
@@ -62,3 +63,9 @@ position = Vector2(742, 234)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1cvt8")
 autoplay = true
+
+[node name="ExitBox" parent="." instance=ExtResource("7_x66wk")]
+position = Vector2(1038, 590)
+script = null
+
+[connection signal="body_entered" from="ExitBox" to="." method="_on_exit_box_body_entered"]

@@ -6,9 +6,18 @@ var health = 100
 var player_alive = true
 var attacking = false
 var animations
+var enemyAttackCooldown: Timer
+var playerAttackCooldown: Timer
+
 
 func _ready():
 	animations = $PlayerSprite
+	
+	createEnemyTimer()
+	
+	createPlayerTimer()
+	
+# standard process, handles movement and attack logic
 
 func _process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -54,7 +63,7 @@ func player_attack():
 	if Input.is_action_just_pressed("player_melee"):
 		global.player_attacking = true
 		attacking = true
-		$PlayerAttackCooldown.start()
+		playerAttackCooldown.start()
 		
 # checks to see if an enemy can attack the player
 		
@@ -63,7 +72,7 @@ func enemy_attack():
 		health = health - 20
 		print("player took damage")
 		enemy_attack_cooldown = false
-		$EnemyAttackCooldown.start()
+		enemyAttackCooldown.start()
 		print(health)
 		
 # runs when the enemy's attack cooldown ends	
@@ -76,6 +85,19 @@ func _on_enemy_attack_cooldown_timeout():
 func _on_player_attack_cooldown_timeout():
 	global.player_attacking = false
 	attacking = false
+	
+# both of the following functions start attack cooldown timers
+func createEnemyTimer():
+	enemyAttackCooldown = Timer.new()
+	enemyAttackCooldown.wait_time = 0.85
+	add_child(enemyAttackCooldown)
+	enemyAttackCooldown.timeout.connect(_on_enemy_attack_cooldown_timeout)
+	
+func createPlayerTimer():
+	playerAttackCooldown = Timer.new()
+	playerAttackCooldown.wait_time = 0.75
+	add_child(playerAttackCooldown)
+	playerAttackCooldown.timeout.connect(_on_player_attack_cooldown_timeout)
 	
 
 

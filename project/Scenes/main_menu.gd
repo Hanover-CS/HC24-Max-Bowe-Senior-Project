@@ -2,8 +2,6 @@ extends MarginContainer
 
 class_name CustomSceneManagerMainMenu
 
-signal remove_menu
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,6 +11,7 @@ func _ready():
 func _process(delta):
 	pass
 
+# listens for input on the start button, starts tile_selector on input
 
 func _on_start_button_gui_input(event):
 	if event is InputEventMouseButton:

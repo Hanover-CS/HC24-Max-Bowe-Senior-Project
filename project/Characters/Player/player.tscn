@@ -27,10 +27,6 @@ sprite_frames = ExtResource("2_hu31w")
 [node name="PlayerCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qbdd5")
 
-[node name="EnemyAttackCooldown" type="Timer" parent="."]
-wait_time = 0.85
-one_shot = true
-
 [node name="AttackBox" type="Area2D" parent="."]
 monitoring = false
 script = ExtResource("3_0itig")
@@ -44,11 +40,5 @@ shape = SubResource("RectangleShape2D_0ui1m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 shape = SubResource("CapsuleShape2D_eh60l")
 
-[node name="PlayerAttackCooldown" type="Timer" parent="."]
-wait_time = 0.75
-one_shot = true
-
-[connection signal="timeout" from="EnemyAttackCooldown" to="." method="_on_enemy_attack_cooldown_timeout"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
-[connection signal="timeout" from="PlayerAttackCooldown" to="." method="_on_player_attack_cooldown_timeout"]

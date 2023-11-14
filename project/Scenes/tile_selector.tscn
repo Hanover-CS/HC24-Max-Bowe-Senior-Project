@@ -21,7 +21,12 @@ theme_override_constants/h_separation = 6
 columns = 4
 script = ExtResource("1_4w7cp")
 
-[node name="SaveTimer" type="Timer" parent="CenterContainer/Tiles"]
-wait_time = 3.0
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 1292.0
+offset_right = 334.0
+offset_bottom = 1453.0
+text = "Exit"
 
-[connection signal="timeout" from="CenterContainer/Tiles/SaveTimer" to="CenterContainer/Tiles" method="_on_save_timer_timeout"]
+[connection signal="pressed" from="Button" to="CenterContainer/Tiles" method="_on_button_pressed"]
