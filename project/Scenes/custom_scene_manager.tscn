@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bja2slpmf5y4r"]
+
+[ext_resource type="Script" path="res://customscenemanager.gd" id="1_wxsy4"]
+
+[node name="CustomSceneManager" type="Node"]
+script = ExtResource("1_wxsy4")
+Scenes = {
+"fight_scene": &"res://Scenes/fight_scene.tscn",
+"main_menu": &"res://Scenes/main_menu.tscn",
+"tile_selector": &"res://Scenes/tile_selector.tscn"
+}
+metadata/_edit_pinned_properties_ = [&"Scenes"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyse6358y3uxq"]
+[gd_scene load_steps=25 format=3 uid="uid://cyse6358y3uxq"]
 
 [ext_resource type="Script" path="res://Characters/Enemy/enemy_eye.gd" id="1_4nk6o"]
 [ext_resource type="Texture2D" uid="uid://ggdeifwwiada" path="res://Characters/Enemy/enemy_eye.png" id="1_k75hh"]
@@ -6,8 +6,165 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n76ef"]
 radius = 16.0312
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q63vx"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdesb"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sahvp"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7504"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k6kd"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgfsi"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp15t"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfaay"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4v7o"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqo1k"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtds2"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yd00"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfu4o"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ruh"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lmii"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ean7a"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jovgv"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r23gc"]
+atlas = ExtResource("1_k75hh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1p0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q63vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdesb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sahvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7504")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k6kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgfsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfaay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4v7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqo1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtds2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yd00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfu4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37ruh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lmii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ean7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jovgv")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r23gc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ql05u"]
 radius = 27.5045
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uacc3"]
+radius = 159.5
 
 [node name="EyeEnemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -16,9 +173,9 @@ script = ExtResource("1_4nk6o")
 [node name="EyeCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n76ef")
 
-[node name="EyeSprite" type="Sprite2D" parent="."]
+[node name="EyeSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-texture = ExtResource("1_k75hh")
+sprite_frames = SubResource("SpriteFrames_m1p0r")
 
 [node name="EyeHitbox" type="Area2D" parent="."]
 
@@ -29,6 +186,19 @@ shape = SubResource("CircleShape2D_ql05u")
 wait_time = 0.539
 one_shot = true
 
+[node name="SightBubble" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightBubble"]
+shape = SubResource("CircleShape2D_uacc3")
+
+[node name="BlinkAnimationTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="EyeHitbox" to="." method="_on_eye_hitbox_body_entered"]
 [connection signal="body_exited" from="EyeHitbox" to="." method="_on_eye_hitbox_body_exited"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="body_entered" from="SightBubble" to="." method="_on_sight_bubble_body_entered"]
+[connection signal="body_exited" from="SightBubble" to="." method="_on_sight_bubble_body_exited"]
+[connection signal="timeout" from="BlinkAnimationTimer" to="." method="_on_blink_animation_timer_timeout"]

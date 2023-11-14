@@ -1,10 +1,17 @@
 extends Control
 
 
+var fightScene = load("res://Scenes/main.tscn")
+
+
+signal _scene_changed
+
 func _on_button_button_up():
+	for i in global.tiles:
+			if(i == self):
+				i.set_meta("clicked", true)
 	if(get_meta("type") == "fight"):
-		$Button.icon = ResourceLoader.load("res://graphics/fight-tile.png")
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		custom_scene_manager.SwitchScene("fight_scene")
 	elif(get_meta("type") == "boss"):
 		pass
 	else:

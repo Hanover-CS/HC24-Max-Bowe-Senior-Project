@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c022anm0y0eqv"]
+
+[ext_resource type="Script" path="res://objects/exit_box.gd" id="1_nqa82"]
+[ext_resource type="Texture2D" uid="uid://dwb42g3uc87gr" path="res://graphics/fight-tile.png" id="2_50w3y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwrul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpimu"]
+size = Vector2(251, 209.5)
+
+[node name="ExitBox" type="Area2D"]
+script = ExtResource("1_nqa82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_iwrul")
+position = Vector2(835, 607)
+shape = SubResource("RectangleShape2D_wpimu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(835, 606)
+scale = Vector2(3.90625, 3.25)
+texture = ExtResource("2_50w3y")

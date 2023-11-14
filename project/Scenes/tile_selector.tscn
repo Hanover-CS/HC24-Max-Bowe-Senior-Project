@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/tiles.gd" id="1_4w7cp"]
 
-[node name="TileSelector" type="Control"]
+[node name="TileSelector" type="Control" groups=["hideable"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,3 +20,8 @@ layout_mode = 2
 theme_override_constants/h_separation = 6
 columns = 4
 script = ExtResource("1_4w7cp")
+
+[node name="SaveTimer" type="Timer" parent="CenterContainer/Tiles"]
+wait_time = 3.0
+
+[connection signal="timeout" from="CenterContainer/Tiles/SaveTimer" to="CenterContainer/Tiles" method="_on_save_timer_timeout"]

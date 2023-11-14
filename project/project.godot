@@ -18,6 +18,7 @@ config/icon="res://Characters/Player/icon.svg"
 [autoload]
 
 global="*res://global.gd"
+custom_scene_manager="*res://Scenes/custom_scene_manager.tscn"
 
 [display]
 

@@ -1,15 +1,20 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	remove_child($FightScene)
+	remove_child($TileSelector)
+
+func _on_exit_box_body_entered(_body):
+	remove_child($FightScene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_tile_selector_remove_tile_selector():
+	remove_child($TileSelector)
+	add_child($FightScene)
 
 
-func _on_exit_box_body_entered(body):
-	get_tree().change_scene_to_file("res://Scenes/tile_selector.tscn")
+func _on_main_menu_remove_menu():
+	get_tree().root.remove_child($MainMenu)
+	add_child($TileSelector)
