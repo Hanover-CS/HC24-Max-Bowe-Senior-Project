@@ -7,11 +7,13 @@ var numBoss = 1
 var numMystery = 4
 var numTiles = numFights + numBoss + numMystery
 
+
 var tiles = []
 var types = []
 var clickedStatus = []
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the first time. 
+
 func _ready():
 	types = global.types
 	if(types.size() == 0):

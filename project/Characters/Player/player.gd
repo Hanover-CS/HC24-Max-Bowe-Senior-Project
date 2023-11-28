@@ -2,15 +2,18 @@ extends CharacterBody2D
 
 var enemy_in_range = false
 var enemy_attack_cooldown = true
-var health = 100
+var health
+const speed = 500
+
 var player_alive = true
+
 var attacking = false
 var animations
 var enemyAttackCooldown: Timer
 var playerAttackCooldown: Timer
 
-
 func _ready():
+	health = global.playerHealth
 	animations = $PlayerSprite
 	
 	createEnemyTimer()
@@ -21,7 +24,7 @@ func _ready():
 
 func _process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	look_at(get_global_mouse_position())
 	player_animations()
@@ -56,9 +59,9 @@ func _on_player_hitbox_body_entered(body):
 func _on_player_hitbox_body_exited(body):
 	if (body.has_method("enemy_eye")):
 		enemy_in_range = false
-
-# starts a player attack
 		
+# starts a player attack
+
 func player_attack():
 	if Input.is_action_just_pressed("player_melee"):
 		global.player_attacking = true
@@ -69,7 +72,7 @@ func player_attack():
 		
 func enemy_attack():
 	if enemy_in_range and enemy_attack_cooldown:
-		health = health - 20
+		health -= 5
 		print("player took damage")
 		enemy_attack_cooldown = false
 		enemyAttackCooldown.start()

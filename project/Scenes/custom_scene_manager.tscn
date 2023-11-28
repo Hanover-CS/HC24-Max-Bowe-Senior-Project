@@ -5,6 +5,7 @@
 [node name="CustomSceneManager" type="Node"]
 script = ExtResource("1_wxsy4")
 Scenes = {
+"boss_scene": &"res://Scenes/boss_scene.tscn",
 "fight_scene": &"res://Scenes/fight_scene.tscn",
 "main_menu": &"res://Scenes/main_menu.tscn",
 "tile_selector": &"res://Scenes/tile_selector.tscn"

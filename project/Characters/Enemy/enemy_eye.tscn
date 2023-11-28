@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cyse6358y3uxq"]
+[gd_scene load_steps=30 format=3 uid="uid://cyse6358y3uxq"]
 
 [ext_resource type="Script" path="res://Characters/Enemy/enemy_eye.gd" id="1_4nk6o"]
 [ext_resource type="Texture2D" uid="uid://ggdeifwwiada" path="res://Characters/Enemy/enemy_eye.png" id="1_k75hh"]
+[ext_resource type="Texture2D" uid="uid://bf1g6psgn61bf" path="res://Characters/Enemy/eye_damaged.png" id="3_iflhx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n76ef"]
 radius = 16.0312
@@ -73,6 +74,22 @@ region = Rect2(480, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jovgv"]
 atlas = ExtResource("1_k75hh")
 region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hnc3"]
+atlas = ExtResource("3_iflhx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqv2"]
+atlas = ExtResource("3_iflhx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgyqf"]
+atlas = ExtResource("3_iflhx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66w6a"]
+atlas = ExtResource("3_iflhx")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r23gc"]
 atlas = ExtResource("1_k75hh")
@@ -153,6 +170,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3hnc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgyqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66w6a")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r23gc")
 }],
 "loop": true,
@@ -176,6 +210,7 @@ shape = SubResource("CircleShape2D_n76ef")
 [node name="EyeSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_m1p0r")
+animation = &"damaged"
 
 [node name="EyeHitbox" type="Area2D" parent="."]
 

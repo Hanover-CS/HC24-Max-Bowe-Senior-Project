@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctox2ugdgrcfk"]
+
+[ext_resource type="Texture2D" uid="uid://cuvkjqqu8r26s" path="res://Characters/Player/melee_blast.png" id="1_u83ht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5usxd"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0duk"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukdta"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmkuu"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4arh"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4alt"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5q26"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1u65"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubaht"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtmiu"]
+atlas = ExtResource("1_u83ht")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fw3c4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5usxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0duk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukdta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmkuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4arh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4alt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5q26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1u65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubaht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtmiu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="MeleeBlast" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_fw3c4")
+frame_progress = 0.223563

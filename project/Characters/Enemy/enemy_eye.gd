@@ -6,7 +6,6 @@ var player_in_range = false
 var player_chase = false
 var blinking = false
 
-
 var player = null
 var animations = null
 
@@ -15,6 +14,7 @@ var speed = 50
 # ready method, assigns eye animations and sets blinking timer randomly
 
 func _ready():
+	global.enemies.append(self)
 	animations = $EyeSprite
 	$BlinkAnimationTimer.wait_time = randi_range(3,5)
 	
@@ -53,11 +53,14 @@ func _on_eye_hitbox_body_exited(body):
 
 func damage_enemy():
 	if player_in_range and global.player_attacking and can_take_damage:
+		animations.play("damaged")
 		$DamageCooldown.start()
 		can_take_damage = false
 		health -= 20
-		print("eye has taken 20 damage, current health is: ", health)
+		print(self, "eye has taken 20 damage, current health is: ", health)
 	if health <= 0:
+		var index = global.enemies.find(self)
+		global.enemies.pop_at(index)
 		self.queue_free()
 		
 

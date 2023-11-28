@@ -16,4 +16,3 @@ func _process(delta):
 func _on_start_button_gui_input(event):
 	if event is InputEventMouseButton:
 		custom_scene_manager.SwitchScene("tile_selector")
-		

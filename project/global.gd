@@ -10,3 +10,6 @@ var types = []
 
 var clickedStatus = []
 
+var enemies = []
+
+var playerHealth = 100
