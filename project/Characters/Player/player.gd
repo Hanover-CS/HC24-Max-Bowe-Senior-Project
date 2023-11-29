@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var enemy_in_range = false
 var enemy_attack_cooldown = true
-var health
-const speed = 500
+var health: int
+const speed: int = 500
 
 var player_alive = true
 

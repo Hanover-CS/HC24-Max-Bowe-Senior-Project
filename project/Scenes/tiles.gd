@@ -2,10 +2,10 @@ extends GridContainer
 
 var tile_button = load("res://Scenes/tile_button.tscn")
 
-var numFights = 7
-var numBoss = 1
-var numMystery = 4
-var numTiles = numFights + numBoss + numMystery
+var numFights: int = 7
+var numBoss: int = 1
+var numMystery: int = 4
+var numTiles: int = numFights + numBoss + numMystery
 
 
 var tiles = []

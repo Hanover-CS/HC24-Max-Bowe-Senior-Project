@@ -2,7 +2,7 @@ extends Node2D
 
 class_name CustomSceneManagerFightScene
 
-var num_enemies = 1
+var num_enemies: int = 2
 
 var enemies_present = true
 
@@ -30,13 +30,15 @@ func spawn_enemies():
 # exit body for testing scene switch
 
 func set_player_health_bar():
-	$PlayerHealth.max_value = $Player.health
+	$PlayerHealthBar.max_value = $Player.health
 
 func health_bar_follow_player():
-	$PlayerHealth.position = $Player.position - Vector2(1000, 800)
+	$PlayerHealthBar.position = $Player.position - Vector2(1000, 800)
+	$PlayerHealthLabel.position = $Player.position - Vector2(1000, 815)
 	
 func update_health():
-	$PlayerHealth.value = $Player.health
+	$PlayerHealthBar.value = $Player.health
+	$PlayerHealthLabel.text = str($Player.health)
 
 func _on_exit_box_body_entered(body):
 	custom_scene_manager.SwitchScene("tile_selector")

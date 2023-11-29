@@ -1,12 +1,10 @@
 res://Scenes/fight_scene.tscn
 res://Characters/Player/player.gd
 res://Characters/Player/player_attack_frames.tres
+res://addons/gut/gui/GutSceneTheme.tres
 res://Scenes/tile_selector.tscn
 res://test/unit/test_main_tests.tscn
 res://Characters/Player/player.tscn
 res://Scenes/tile_button.tscn
 res://Scenes/boss_scene.tscn
-res://Scenes/fight_scene.gd
-res://global.gd
-res://Scenes/tile_button.gd
 res://Scenes/custom_scene_manager.tscn
