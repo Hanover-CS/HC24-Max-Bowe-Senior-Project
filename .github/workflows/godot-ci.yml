@@ -65,6 +65,8 @@ jobs:
           pwd
           ls
           aws s3 sync . s3://max-bow-project
-
+      - name: Invalidate cloudfront
+        run: |
+          aws cloudfront create-invalidation --distribution-id E2RGDC6AVKGEPF --paths "/*"
 permissions: 
     contents: write
