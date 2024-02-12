@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+CharacterBody2D
 Label
 ProgressBar
 Camera2D
@@ -10,11 +14,8 @@ CenterContainer
 VBoxContainer
 Container
 Node2D
-AnimatedSprite2D
-CollisionShape2D
 RigidBody2D
 Timer
-Area2D
 AudioStreamPlayer
 Node
 Control
@@ -22,7 +23,6 @@ GutTest
 AnimationPlayer
 ColorRect
 Sprite2D
-CharacterBody2D
 RichTextLabel
 VSplitContainer
 TextureRect
