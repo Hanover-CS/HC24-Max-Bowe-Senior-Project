@@ -1,7 +1,5 @@
 extends Control
 
-var fightScene = load("res://Scenes/main.tscn")
-
 signal _button_clicked(button)
 
 # receives a signal from it's child button on press, changes scenes based on signal

@@ -10,3 +10,8 @@ res://Scenes/custom_scene_manager.tscn
 res://Characters/Enemy/boss.tscn
 res://Characters/Enemy/boss.gd
 res://Scenes/BossScene.gd
+res://global.gd
+res://Scenes/MarginContainer.gd
+res://Scenes/main_menu.tscn
+res://Scenes/tile_button.gd
+res://Scenes/WinScreen.gd

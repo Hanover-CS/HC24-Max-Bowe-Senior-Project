@@ -4,9 +4,8 @@ var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health: int
 const speed: int = 500
-
 var player_alive = true
-
+var boss_in_range = false
 var attacking = false
 var animations
 var enemyAttackCooldown: Timer
@@ -30,6 +29,7 @@ func _process(delta):
 	player_animations()
 	player_attack()
 	enemy_attack()
+	global.playerPosition = position
 	if health <= 0:
 		health = 0
 		player_alive = false
@@ -53,12 +53,16 @@ func player_animations():
 func _on_player_hitbox_body_entered(body):
 	if (body.has_method("enemy_eye")):
 		enemy_in_range = true
+	if (body.has_method("boss")):
+		boss_in_range = true
 
 # runs when a foreign body exits the player's hitbox
 
 func _on_player_hitbox_body_exited(body):
 	if (body.has_method("enemy_eye")):
 		enemy_in_range = false
+	if (body.has_method("boss")):
+		boss_in_range = false
 		
 # starts a player attack
 
@@ -74,6 +78,12 @@ func enemy_attack():
 	if enemy_in_range and enemy_attack_cooldown:
 		health -= 5
 		print("player took damage")
+		enemy_attack_cooldown = false
+		enemyAttackCooldown.start()
+		print(health)
+	if boss_in_range and enemy_attack_cooldown and !global.bossDead:
+		health -= 7
+		print("player took damage from boss")
 		enemy_attack_cooldown = false
 		enemyAttackCooldown.start()
 		print(health)

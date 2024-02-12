@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt1h1jcp2k07f"]
+[gd_scene load_steps=12 format=3 uid="uid://bt1h1jcp2k07f"]
 
 [ext_resource type="Script" path="res://Scenes/BossScene.gd" id="1_3p1kr"]
 [ext_resource type="Texture2D" uid="uid://do6g64qcinv2k" path="res://graphics/ground_tiles.png" id="2_hngfj"]
 [ext_resource type="Texture2D" uid="uid://gpwtjumtd3n0" path="res://graphics/tree.png" id="3_b6lmn"]
 [ext_resource type="PackedScene" uid="uid://dvt1burcnk2jb" path="res://Characters/Player/player.tscn" id="4_di5i4"]
 [ext_resource type="PackedScene" uid="uid://bhdffos1os1au" path="res://Characters/Enemy/boss.tscn" id="5_ac5ng"]
+[ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="6_qflyi"]
+[ext_resource type="FontFile" uid="uid://dcn7dca8xdloc" path="res://fonts/AeroviasBrasilNF.ttf" id="7_0rvei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2vgi"]
 texture = ExtResource("2_hngfj")
@@ -96,6 +98,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_c2vgi")
 sources/1 = SubResource("TileSetAtlasSource_mgk32")
 
+[sub_resource type="LabelSettings" id="LabelSettings_vlnvr"]
+font = ExtResource("7_0rvei")
+font_size = 300
+font_color = Color(0.0588235, 0.32549, 0.196078, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="BossScene" type="Node2D"]
 script = ExtResource("1_3p1kr")
 
@@ -121,6 +130,36 @@ scale = Vector2(2, 2)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.65, 0.65)
 
-[node name="Node2D" parent="." instance=ExtResource("5_ac5ng")]
+[node name="Boss" parent="." instance=ExtResource("5_ac5ng")]
 position = Vector2(1395, 862)
 scale = Vector2(6, 6)
+
+[node name="LeaveLevelTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_qflyi")
+
+[node name="WinScreenFrame" type="MarginContainer" parent="WinScreen"]
+layout_mode = 0
+offset_right = 1302.0
+offset_bottom = 403.0
+
+[node name="Label" type="Label" parent="WinScreen/WinScreenFrame"]
+layout_mode = 2
+text = "Boss Defeated"
+label_settings = SubResource("LabelSettings_vlnvr")
+
+[connection signal="boss_defeated" from="Boss" to="WinScreen" method="_on_boss_boss_defeated"]
+[connection signal="timeout" from="LeaveLevelTimer" to="." method="_on_leave_level_timer_timeout"]

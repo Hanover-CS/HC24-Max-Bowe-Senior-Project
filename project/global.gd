@@ -13,3 +13,7 @@ var clickedStatus = []
 var enemies = []
 
 var playerHealth = 100
+
+var bossDead = false
+
+var playerPosition = Vector2(0,0)

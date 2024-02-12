@@ -1,10 +1,47 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhdffos1os1au"]
+[gd_scene load_steps=35 format=3 uid="uid://bhdffos1os1au"]
 
 [ext_resource type="Texture2D" uid="uid://dvp70gw7eb0sf" path="res://graphics/Boss-image.png" id="1_ga2gv"]
 [ext_resource type="Script" path="res://Characters/Enemy/boss.gd" id="1_uwhtc"]
+[ext_resource type="Texture2D" uid="uid://c1dsla0pjybpd" path="res://graphics/boss-dying.png" id="2_lygft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev8dd"]
 size = Vector2(45, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q47uv"]
+atlas = ExtResource("2_lygft")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty8a8"]
+atlas = ExtResource("2_lygft")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwq4d"]
+atlas = ExtResource("2_lygft")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr1os"]
+atlas = ExtResource("2_lygft")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4hfn"]
+atlas = ExtResource("2_lygft")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53vrs"]
+atlas = ExtResource("2_lygft")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a3lt"]
+atlas = ExtResource("2_lygft")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyol7"]
+atlas = ExtResource("2_lygft")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75dul"]
+atlas = ExtResource("2_lygft")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k77nc"]
 atlas = ExtResource("1_ga2gv")
@@ -80,6 +117,41 @@ region = Rect2(1088, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bluwh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q47uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty8a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwq4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr1os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4hfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53vrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a3lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyol7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75dul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75dul")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k77nc")
@@ -159,7 +231,9 @@ texture_filter = 3
 position = Vector2(0, 1.90735e-06)
 rotation = 1.57952
 sprite_frames = SubResource("SpriteFrames_bluwh")
-frame_progress = 0.442134
+animation = &"death"
+frame = 8
+frame_progress = 1.0
 
 [node name="BossSight" type="Area2D" parent="."]
 position = Vector2(3.8147e-06, -7.62939e-06)
@@ -169,11 +243,19 @@ rotation = 0.785398
 rotation = -1.13446
 shape = SubResource("CircleShape2D_ibakf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(27, 0)
 shape = SubResource("RectangleShape2D_31i66")
 
+[node name="DamageCooldown" type="Timer" parent="."]
+
+[node name="DeathAnimation" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="BossSight" to="." method="_on_boss_sight_body_entered"]
 [connection signal="body_exited" from="BossSight" to="." method="_on_boss_sight_body_exited"]
+[connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="DeathAnimation" to="." method="_on_death_animation_timeout"]
