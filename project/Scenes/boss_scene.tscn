@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt1h1jcp2k07f"]
+[gd_scene load_steps=18 format=3 uid="uid://bt1h1jcp2k07f"]
 
 [ext_resource type="Script" path="res://Scenes/BossScene.gd" id="1_3p1kr"]
 [ext_resource type="Texture2D" uid="uid://do6g64qcinv2k" path="res://graphics/ground_tiles.png" id="2_hngfj"]
@@ -105,6 +105,37 @@ font_color = Color(0.0588235, 0.32549, 0.196078, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfr6u"]
+bg_color = Color(0.25098, 0.690196, 0.541176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpo4g"]
+bg_color = Color(0.968627, 0.388235, 0.211765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7gpgt"]
+font = ExtResource("7_0rvei")
+font_size = 86
+font_color = Color(0.027451, 0.027451, 0.027451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1rf0"]
+bg_color = Color(0.105882, 0.360784, 0.403922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_285ng"]
+bg_color = Color(0.796078, 0.203922, 0.215686, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjdjp"]
+font = ExtResource("7_0rvei")
+font_size = 150
+
 [node name="BossScene" type="Node2D"]
 script = ExtResource("1_3p1kr")
 
@@ -136,6 +167,7 @@ scale = Vector2(6, 6)
 
 [node name="LeaveLevelTimer" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
 
 [node name="WinScreen" type="Control" parent="."]
 visible = false
@@ -160,6 +192,48 @@ offset_bottom = 403.0
 layout_mode = 2
 text = "Boss Defeated"
 label_settings = SubResource("LabelSettings_vlnvr")
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="."]
+z_index = 10
+offset_left = -357.0
+offset_top = -39.0
+offset_right = -8.0
+offset_bottom = 36.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cfr6u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hpo4g")
+step = 1.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="."]
+z_index = 10
+offset_left = -356.0
+offset_top = -64.0
+offset_right = -9.0
+offset_bottom = 30.0
+text = "swag"
+label_settings = SubResource("LabelSettings_7gpgt")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BossHealthBar" type="ProgressBar" parent="."]
+z_index = 10
+offset_left = 537.0
+offset_top = 86.0
+offset_right = 1057.0
+offset_bottom = 197.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y1rf0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_285ng")
+step = 1.0
+show_percentage = false
+
+[node name="BossHealthLabel" type="Label" parent="."]
+z_index = 11
+offset_left = 559.0
+offset_top = 20.0
+offset_right = 1032.0
+offset_bottom = 223.0
+text = "boss swag"
+label_settings = SubResource("LabelSettings_sjdjp")
 
 [connection signal="boss_defeated" from="Boss" to="WinScreen" method="_on_boss_boss_defeated"]
 [connection signal="timeout" from="LeaveLevelTimer" to="." method="_on_leave_level_timer_timeout"]

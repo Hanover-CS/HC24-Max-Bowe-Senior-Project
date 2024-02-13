@@ -11,4 +11,4 @@ func _on_button_button_up():
 	elif(get_meta("type") == "boss"):
 		custom_scene_manager.SwitchScene("boss_scene")
 	else:
-		custom_scene_manager.SwitchScene("fight_scene")
+		custom_scene_manager.SwitchScene("mystery_scene")

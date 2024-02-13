@@ -3,7 +3,7 @@ extends CharacterBody2D
 var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health: int
-const speed: int = 500
+var speed: int
 var player_alive = true
 var boss_in_range = false
 var attacking = false
@@ -13,6 +13,7 @@ var playerAttackCooldown: Timer
 
 func _ready():
 	health = global.playerHealth
+	speed = global.playerSpeed
 	animations = $PlayerSprite
 	
 	createEnemyTimer()

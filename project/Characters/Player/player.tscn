@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvt1burcnk2jb"]
+[gd_scene load_steps=7 format=3 uid="uid://dvt1burcnk2jb"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_0l7h8"]
 [ext_resource type="SpriteFrames" uid="uid://dkwgw24xo6dq2" path="res://Characters/Player/player_attack_frames.tres" id="2_hu31w"]
+[ext_resource type="Script" path="res://Characters/Player/AttackBox.gd" id="3_41eav"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbdd5"]
 radius = 12.0
@@ -32,6 +33,7 @@ shape = SubResource("CapsuleShape2D_qbdd5")
 
 [node name="AttackBox" type="Area2D" parent="."]
 monitoring = false
+script = ExtResource("3_41eav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(52, 20.625)

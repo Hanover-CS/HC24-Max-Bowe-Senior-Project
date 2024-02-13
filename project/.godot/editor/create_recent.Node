@@ -1,6 +1,12 @@
+ItemList
+CollisionShape2D
+Sprite2D
+Area2D
+TileMap
+Label
+ProgressBar
 Control
 Timer
-Label
 ColorRect
 MarginContainer
 PopupPanel
@@ -10,13 +16,9 @@ TextEdit
 Panel
 PanelContainer
 CenterContainer
-CollisionShape2D
-Area2D
 AnimatedSprite2D
 CharacterBody2D
-ProgressBar
 Camera2D
-TileMap
 Button
 GridContainer
 VBoxContainer
@@ -27,6 +29,5 @@ AudioStreamPlayer
 Node
 GutTest
 AnimationPlayer
-Sprite2D
 VSplitContainer
 TextureRect

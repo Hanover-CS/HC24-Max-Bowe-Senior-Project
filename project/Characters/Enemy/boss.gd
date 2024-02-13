@@ -4,6 +4,7 @@ var health = 100
 var animations
 var sees_player = false
 var player
+var player_damage: int
 var speed = 100
 var can_be_attacked = true
 var player_in_range = false
@@ -14,6 +15,7 @@ func boss():
 	pass
 
 func _ready():
+	player_damage = global.playerDamage
 	animations = $BossSprite
 	
 func _physics_process(delta):
@@ -37,11 +39,19 @@ func check_player_seen():
 		look_at(player.position)
 		# another built in function that moves an object to a point in space
 		move_and_collide(((player.position - position)/speed))
+		
+		
+func damage_enemy():
+	if player_in_range and global.player_attacking and can_be_attacked:
+		$DamageCooldown.start()
+		can_be_attacked = false
+		health -= player_damage
+		print("Boss has taken ", player_damage, " damage, current health is: ", health)
 
 func check_player_attacking():
-	if global.player_attacking and can_be_attacked:
+	if global.player_attacking and can_be_attacked and player_in_range:
 		can_be_attacked = false
-		health -= 10
+		health -= player_damage
 		print(health)
 		$DamageCooldown.start()
 
@@ -67,4 +77,14 @@ func boss_death():
 func _on_death_animation_timeout():
 	emit_signal("boss_defeated")
 	self.queue_free()
-	
+
+func _on_hit_box_area_entered(area):
+	if area.has_method('player_attack_box'):
+		player_in_range = true
+		
+# called when a body exits its hitbox, will check if player, if so,
+# player_in_range is marked false
+
+func _on_hit_box_area_exited(area):
+	if area.has_method('player_attack_box'):
+		player_in_range = false

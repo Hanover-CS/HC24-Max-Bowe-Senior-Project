@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1vgmfwbqicbq"]
+
+[ext_resource type="Script" path="res://objects/item.gd" id="1_hllsw"]
+[ext_resource type="Texture2D" uid="uid://dy5k7losmq5p3" path="res://graphics/item_pickup.png" id="1_i86t4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_40tsa"]
+radius = 14.0
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_hllsw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_40tsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_i86t4")
+
+[node name="ItemList" type="ItemList" parent="."]
+z_index = 10
+texture_filter = 3
+offset_left = -63.0
+offset_top = -28.0
+offset_right = 69.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 12
+allow_search = false
+auto_height = true
+item_count = 2
+item_0/text = "Speed Upgrade"
+item_1/text = "Strength Upgrade"
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

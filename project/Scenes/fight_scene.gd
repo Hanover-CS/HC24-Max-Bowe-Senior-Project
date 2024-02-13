@@ -10,6 +10,7 @@ var eye_enemy = load('res://Characters/Enemy/enemy_eye.tscn')
 
 func _ready():
 	spawn_enemies()
+	set_player_health_bar()
 
 # spawns enemies in a random position in the 2D space
 

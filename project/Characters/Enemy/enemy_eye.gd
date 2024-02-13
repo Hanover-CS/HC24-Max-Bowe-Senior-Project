@@ -3,6 +3,7 @@ extends CharacterBody2D
 var health = 100
 var can_take_damage = true
 var player_in_range = false
+var player_damage : int
 var player_chase = false
 var blinking = false
 
@@ -15,6 +16,7 @@ var speed = 50
 
 func _ready():
 	global.enemies.append(self)
+	player_damage = global.playerDamage
 	animations = $EyeSprite
 	$BlinkAnimationTimer.wait_time = randi_range(3,5)
 	
@@ -56,8 +58,8 @@ func damage_enemy():
 		animations.play("damaged")
 		$DamageCooldown.start()
 		can_take_damage = false
-		health -= 20
-		print(self, "eye has taken 20 damage, current health is: ", health)
+		health -= player_damage
+		print("eye has taken ", player_damage, " damage, current health is: ", health)
 	if health <= 0:
 		var index = global.enemies.find(self)
 		global.enemies.pop_at(index)

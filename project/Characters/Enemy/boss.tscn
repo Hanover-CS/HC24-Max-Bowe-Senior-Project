@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bhdffos1os1au"]
+[gd_scene load_steps=36 format=3 uid="uid://bhdffos1os1au"]
 
 [ext_resource type="Texture2D" uid="uid://dvp70gw7eb0sf" path="res://graphics/Boss-image.png" id="1_ga2gv"]
 [ext_resource type="Script" path="res://Characters/Enemy/boss.gd" id="1_uwhtc"]
@@ -218,6 +218,9 @@ radius = 180.069
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31i66"]
 size = Vector2(28, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sh47"]
+size = Vector2(28, 46)
+
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_uwhtc")
 
@@ -254,8 +257,15 @@ shape = SubResource("RectangleShape2D_31i66")
 [node name="DeathAnimation" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_4sh47")
+
 [connection signal="body_entered" from="BossSight" to="." method="_on_boss_sight_body_entered"]
 [connection signal="body_exited" from="BossSight" to="." method="_on_boss_sight_body_exited"]
 [connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="DeathAnimation" to="." method="_on_death_animation_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="HitBox" to="." method="_on_hit_box_area_exited"]

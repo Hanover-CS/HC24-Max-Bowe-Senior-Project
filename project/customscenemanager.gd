@@ -10,7 +10,7 @@ var currentSceneName : String = ""
 
 # starts the main(first) scene
 
-func _ready() -> void:
+func _ready():
 	var mainScene : StringName = ProjectSettings.get_setting("application/run/main_scene")
 	currentSceneName = Scenes.find_key(mainScene)
 	
