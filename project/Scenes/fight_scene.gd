@@ -18,9 +18,10 @@ func _ready():
 
 func _process(delta):
 	if(!global.playerDead):
-		if global.enemies.size() == 0:
+		if global.enemies.size() == 0: 
 			global.playerHealth = $Player.health
-			custom_scene_manager.SwitchScene("tile_selector")	
+			display_level_completion()
+			$LevelEndTimer.start()
 		health_bar_follow_player()
 		update_health()
 	else:
@@ -39,8 +40,14 @@ func spawn_enemies():
 # makes the "you died" label visible
 		
 func display_death_notice():
-	$DeathNotice.position = $Player.position
+	$DeathNotice.position = $Player.position - Vector2(600, 300)
 	$DeathNotice.visible = true
+
+# makes the "level complete" label visible
+
+func display_level_completion():
+	$LevelCompleteNotice.position = $Player.position - Vector2(600, 300)
+	$LevelCompleteNotice.visible = true
 	
 # tracks the player's position and places the health bar relative to that position
 
@@ -54,3 +61,6 @@ func update_health():
 	$PlayerHealthBar.value = $Player.health
 	$PlayerHealthLabel.text = str($Player.health)
 
+func _on_level_end_timer_timeout():
+	custom_scene_manager.SwitchScene("tile_selector")
+	

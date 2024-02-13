@@ -202,3 +202,15 @@ position = Vector2(4690, 1732)
 
 [node name="DeathNotice" parent="." instance=ExtResource("8_yqf5e")]
 scale = Vector2(4, 4)
+
+[node name="LevelCompleteNotice" parent="." instance=ExtResource("8_yqf5e")]
+offset_left = -549.0
+offset_top = -333.0
+offset_right = -101.0
+offset_bottom = -196.0
+scale = Vector2(4, 4)
+text = "Level Complete"
+
+[node name="LevelEndTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="LevelEndTimer" to="." method="_on_level_end_timer_timeout"]

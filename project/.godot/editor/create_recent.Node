@@ -1,6 +1,6 @@
+Timer
 TextureRect
 Label
-Timer
 AudioStreamPlayer
 ItemList
 CollisionShape2D
