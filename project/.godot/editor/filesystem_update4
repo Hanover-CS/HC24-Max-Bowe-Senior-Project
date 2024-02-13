@@ -10,3 +10,4 @@ res://Scenes/mystery_scene.tscn
 res://objects/item.tscn
 res://Scenes/tile_selector.tscn
 res://Characters/Enemy/enemy_eye.tscn
+res://Characters/Enemy/enemy_eye.gd

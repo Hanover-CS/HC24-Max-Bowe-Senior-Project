@@ -10,7 +10,7 @@ var blinking = false
 var player = null
 var animations = null
 
-var speed = 50
+var speed = 35
 
 # ready method, assigns eye animations and sets blinking timer randomly
 

@@ -6,6 +6,8 @@ var num_enemies : int
 
 var enemies_present = true
 
+var level_ending = false
+
 # loads the eye enemy scene so that multiple copies may be dynamically created
 
 var eye_enemy = load('res://Characters/Enemy/enemy_eye.tscn')
@@ -21,7 +23,9 @@ func _process(delta):
 		if global.enemies.size() == 0: 
 			global.playerHealth = $Player.health
 			display_level_completion()
-			$LevelEndTimer.start()
+			if level_ending == false:
+				level_ending = true
+				$LevelEndTimer.start()
 		health_bar_follow_player()
 		update_health()
 	else:
@@ -46,7 +50,7 @@ func display_death_notice():
 # makes the "level complete" label visible
 
 func display_level_completion():
-	$LevelCompleteNotice.position = $Player.position - Vector2(600, 300)
+	$LevelCompleteNotice.position = $Player.position - Vector2(700, 300)
 	$LevelCompleteNotice.visible = true
 	
 # tracks the player's position and places the health bar relative to that position

@@ -201,7 +201,7 @@ radius = 27.5045
 radius = 159.5
 
 [node name="EyeEnemy" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_4nk6o")
 
 [node name="EyeCollisionBox" type="CollisionShape2D" parent="."]
