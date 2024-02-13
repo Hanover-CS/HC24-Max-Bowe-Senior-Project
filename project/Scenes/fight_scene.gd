@@ -10,9 +10,6 @@ var eye_enemy = load('res://Characters/Enemy/enemy_eye.tscn')
 
 func _ready():
 	spawn_enemies()
-	set_player_health_bar()
-
-# spawns enemies in a random position in the 2D space
 
 func _process(delta):
 	if global.enemies.size() == 0:
@@ -21,6 +18,8 @@ func _process(delta):
 	health_bar_follow_player()
 	update_health()
 
+# spawns enemies in a random position in the 2D space
+
 func spawn_enemies():
 	for i in range(num_enemies):
 		var newEyeEnemy = eye_enemy.instantiate()
@@ -28,20 +27,16 @@ func spawn_enemies():
 		newEyeEnemy.position = Vector2(randi_range(20, 3000), randi_range(20, 3000))
 		add_child(newEyeEnemy)
 		
-# exit body for testing scene switch
-
-func set_player_health_bar():
-	$PlayerHealthBar.max_value = $Player.health
+	
+# tracks the player's position and places the health bar relative to that position
 
 func health_bar_follow_player():
 	$PlayerHealthBar.position = $Player.position - Vector2(1000, 800)
 	$PlayerHealthLabel.position = $Player.position - Vector2(1000, 815)
 	
+# changes the value of the health progress bar and the text of its label based on player health
+	
 func update_health():
 	$PlayerHealthBar.value = $Player.health
 	$PlayerHealthLabel.text = str($Player.health)
-
-func _on_exit_box_body_entered(body):
-	custom_scene_manager.SwitchScene("tile_selector")
-
 

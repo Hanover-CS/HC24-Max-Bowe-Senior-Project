@@ -11,6 +11,8 @@ var animations
 var enemyAttackCooldown: Timer
 var playerAttackCooldown: Timer
 
+# initializes various things
+
 func _ready():
 	health = global.playerHealth
 	speed = global.playerSpeed
@@ -36,6 +38,7 @@ func _process(delta):
 		player_alive = false
 		get_tree().quit()
 	
+# used to identify if an object that enters a certain area is the player
 
 func player():
 	pass

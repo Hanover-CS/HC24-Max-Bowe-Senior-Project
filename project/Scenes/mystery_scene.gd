@@ -1,15 +1,8 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+# Switches back to tile selection screen when user picks an option
 
 func _on_item_item_selected():
 	custom_scene_manager.SwitchScene("tile_selector")
