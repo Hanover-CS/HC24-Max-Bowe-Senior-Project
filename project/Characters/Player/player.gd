@@ -48,6 +48,8 @@ func _process(delta):
 
 func player():
 	pass
+	
+# holds the player in place and makes it invisible, also starts countdown to program close
 
 func player_death():
 	death_position = position

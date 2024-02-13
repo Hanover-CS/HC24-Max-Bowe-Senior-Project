@@ -37,6 +37,8 @@ func reset_global_stats():
 	global.playerHealth = 100
 	global.playerPosition = Vector2(0,0)
 	
+# makes "you died" message visible
+	
 func display_death_notice():
 	$DeathNotice.position = $Player.position
 	$DeathNotice.visible = true

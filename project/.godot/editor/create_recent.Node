@@ -1,3 +1,4 @@
+TextureRect
 Label
 Timer
 AudioStreamPlayer
@@ -29,4 +30,3 @@ RigidBody2D
 Node
 GutTest
 AnimationPlayer
-VSplitContainer

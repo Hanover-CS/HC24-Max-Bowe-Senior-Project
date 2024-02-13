@@ -1,13 +1,12 @@
-res://Scenes/boss_scene.tscn
+res://Scenes/fight_scene.tscn
 res://Characters/Player/player.gd
 res://Characters/Player/player_attack_frames.tres
+res://Scenes/fight_scene.gd
+res://Scenes/boss_scene.tscn
 res://Scenes/BossScene.gd
 res://Characters/Player/player.tscn
 res://Scenes/tile_button.tscn
 res://Characters/Enemy/boss.tscn
-res://Scenes/fight_scene.tscn
 res://Scenes/mystery_scene.tscn
 res://objects/item.tscn
 res://Scenes/tile_selector.tscn
-res://global.gd
-res://Scenes/fight_scene.gd

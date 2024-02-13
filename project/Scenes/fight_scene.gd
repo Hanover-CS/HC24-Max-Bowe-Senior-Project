@@ -2,7 +2,7 @@ extends Node2D
 
 class_name CustomSceneManagerFightScene
 
-var num_enemies: int = 2
+var num_enemies : int
 
 var enemies_present = true
 
@@ -11,6 +11,8 @@ var enemies_present = true
 var eye_enemy = load('res://Characters/Enemy/enemy_eye.tscn')
 
 func _ready():
+	num_enemies = randi_range(2,5)
+	print(num_enemies)
 	spawn_enemies()
 
 func _process(delta):
@@ -21,7 +23,7 @@ func _process(delta):
 		health_bar_follow_player()
 		update_health()
 	else:
-		$PlayerHealthLabel.text = 0
+		$PlayerHealthLabel.text = "0"
 		display_death_notice()
 
 # spawns enemies in a random position in the 2D space
@@ -32,6 +34,8 @@ func spawn_enemies():
 		newEyeEnemy.z_index = 10
 		newEyeEnemy.position = Vector2(randi_range(20, 3000), randi_range(20, 3000))
 		add_child(newEyeEnemy)
+		
+# makes the "you died" label visible
 		
 func display_death_notice():
 	$DeathNotice.position = $Player.position

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://fbb8ycn44164"]
+[gd_scene load_steps=5 format=3 uid="uid://fbb8ycn44164"]
 
 [ext_resource type="Script" path="res://Scenes/tiles.gd" id="1_4w7cp"]
+[ext_resource type="Texture2D" uid="uid://b3hktg367rn1r" path="res://graphics/base_planet.png" id="2_i83ju"]
+[ext_resource type="FontFile" uid="uid://dcn7dca8xdloc" path="res://fonts/AeroviasBrasilNF.ttf" id="2_qitqd"]
+[ext_resource type="Texture2D" uid="uid://cm7quh42srgtj" path="res://graphics/planet-background.png" id="3_d0od6"]
 
 [node name="TileSelector" type="Control" groups=["hideable"]]
 layout_mode = 3
@@ -22,7 +25,7 @@ scale = Vector2(2, 2)
 
 [node name="Tiles" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 6
+theme_override_constants/h_separation = 10
 columns = 4
 script = ExtResource("1_4w7cp")
 
@@ -32,6 +35,27 @@ offset_left = 40.0
 offset_top = 1292.0
 offset_right = 334.0
 offset_bottom = 1453.0
+theme_override_fonts/font = ExtResource("2_qitqd")
+theme_override_font_sizes/font_size = 50
 text = "Exit"
+
+[node name="PlanetImage" type="TextureRect" parent="."]
+z_index = -3
+texture_filter = 3
+layout_mode = 2
+offset_left = 138.0
+offset_right = 1880.0
+offset_bottom = 1502.0
+mouse_filter = 2
+texture = ExtResource("2_i83ju")
+
+[node name="SpaceBackground" type="TextureRect" parent="."]
+z_index = -10
+texture_filter = 3
+layout_mode = 0
+offset_right = 2021.0
+offset_bottom = 1514.0
+mouse_filter = 2
+texture = ExtResource("3_d0od6")
 
 [connection signal="pressed" from="Button" to="CenterContainer/Tiles" method="_on_button_pressed"]
