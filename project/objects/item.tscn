@@ -19,6 +19,7 @@ texture_filter = 3
 texture = ExtResource("1_i86t4")
 
 [node name="ItemList" type="ItemList" parent="."]
+visible = false
 z_index = 10
 texture_filter = 3
 offset_left = -63.0
@@ -28,8 +29,10 @@ offset_bottom = 22.0
 theme_override_font_sizes/font_size = 12
 allow_search = false
 auto_height = true
-item_count = 2
+item_count = 3
 item_0/text = "Speed Upgrade"
 item_1/text = "Strength Upgrade"
+item_2/text = "Health Boost"
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

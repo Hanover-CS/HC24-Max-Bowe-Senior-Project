@@ -210,7 +210,7 @@ offset_left = -356.0
 offset_top = -64.0
 offset_right = -9.0
 offset_bottom = 30.0
-text = "swag"
+text = "play. health"
 label_settings = SubResource("LabelSettings_7gpgt")
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -232,7 +232,7 @@ offset_left = 559.0
 offset_top = 20.0
 offset_right = 1032.0
 offset_bottom = 223.0
-text = "boss swag"
+text = "boss health"
 label_settings = SubResource("LabelSettings_sjdjp")
 
 [connection signal="boss_defeated" from="Boss" to="WinScreen" method="_on_boss_boss_defeated"]
