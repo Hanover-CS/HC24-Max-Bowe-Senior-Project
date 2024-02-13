@@ -9,25 +9,13 @@
 layout_mode = 3
 anchor_right = 2.0
 anchor_bottom = 2.0
-offset_right = -2000.0
-offset_bottom = -1500.0
+offset_left = -0.999999
+offset_top = 5.0
+offset_right = -2001.0
+offset_bottom = -1495.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.978
-offset_right = -985.0
-offset_bottom = -711.0
-scale = Vector2(2, 2)
-
-[node name="Tiles" type="GridContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 10
-columns = 4
-script = ExtResource("1_4w7cp")
+scale = Vector2(1.19, 1.19)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -58,4 +46,15 @@ offset_bottom = 1514.0
 mouse_filter = 2
 texture = ExtResource("3_d0od6")
 
-[connection signal="pressed" from="Button" to="CenterContainer/Tiles" method="_on_button_pressed"]
+[node name="Tiles" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 648.0
+offset_top = 539.0
+offset_right = 648.0
+offset_bottom = 539.0
+scale = Vector2(2.5, 2.5)
+theme_override_constants/h_separation = 10
+columns = 4
+script = ExtResource("1_4w7cp")
+
+[connection signal="pressed" from="Button" to="Tiles" method="_on_button_pressed"]

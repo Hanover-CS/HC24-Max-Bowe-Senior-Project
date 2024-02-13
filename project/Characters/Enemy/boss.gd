@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 100
+var health = 250
 var animations
 var sees_player = false
 var player

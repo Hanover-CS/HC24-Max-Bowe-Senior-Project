@@ -10,9 +10,10 @@ var enemies_present = true
 
 var eye_enemy = load('res://Characters/Enemy/enemy_eye.tscn')
 
+# spawns enemies at scene load and randomizes the number of enemies spawned
+
 func _ready():
 	num_enemies = randi_range(2,5)
-	print(num_enemies)
 	spawn_enemies()
 
 func _process(delta):

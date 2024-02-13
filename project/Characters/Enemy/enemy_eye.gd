@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 100
+var health : int = 50
 var can_take_damage = true
 var player_in_range = false
 var player_damage : int

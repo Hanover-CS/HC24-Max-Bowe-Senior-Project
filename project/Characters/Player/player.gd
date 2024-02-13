@@ -121,7 +121,7 @@ func _on_player_attack_cooldown_timeout():
 	global.player_attacking = false
 	laser_sound_active = false
 	
-# both of the following functions start attack cooldown timers
+# both of the following functions start attack cooldown timers for the enemies and player respectively
 func createEnemyTimer():
 	enemyAttackCooldown = Timer.new()
 	enemyAttackCooldown.wait_time = 0.85
@@ -133,6 +133,8 @@ func createPlayerTimer():
 	playerAttackCooldown.wait_time = 0.75
 	add_child(playerAttackCooldown)
 	playerAttackCooldown.timeout.connect(_on_player_attack_cooldown_timeout)
+	
+# closes the game when the death timer ends
 
 func _on_death_timer_timeout():
 	custom_scene_manager.quitGame()
