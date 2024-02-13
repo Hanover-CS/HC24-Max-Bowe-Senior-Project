@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxoenod24woiu"]
+[gd_scene load_steps=17 format=3 uid="uid://bxoenod24woiu"]
 
 [ext_resource type="Texture2D" uid="uid://do6g64qcinv2k" path="res://graphics/ground_tiles.png" id="1_8ulpx"]
 [ext_resource type="Script" path="res://Scenes/fight_scene.gd" id="1_uq82d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vpydpt1phtmd" path="res://objects/trashcan.tscn" id="6_mpgcq"]
 [ext_resource type="AudioStream" uid="uid://4ftrrl31knme" path="res://audio/space_sounds.wav" id="8_1cvt8"]
 [ext_resource type="FontFile" uid="uid://dcn7dca8xdloc" path="res://fonts/AeroviasBrasilNF.ttf" id="8_8u2aj"]
+[ext_resource type="PackedScene" uid="uid://b3lhccocdrf6v" path="res://objects/death_notice.tscn" id="8_yqf5e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_su162"]
 
@@ -198,3 +199,6 @@ vertical_alignment = 2
 [node name="Trashcan" parent="." instance=ExtResource("6_mpgcq")]
 z_index = 10
 position = Vector2(4690, 1732)
+
+[node name="DeathNotice" parent="." instance=ExtResource("8_yqf5e")]
+scale = Vector2(4, 4)

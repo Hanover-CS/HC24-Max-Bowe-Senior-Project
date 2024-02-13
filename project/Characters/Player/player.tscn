@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvt1burcnk2jb"]
+[gd_scene load_steps=8 format=3 uid="uid://dvt1burcnk2jb"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_0l7h8"]
 [ext_resource type="SpriteFrames" uid="uid://dkwgw24xo6dq2" path="res://Characters/Player/player_attack_frames.tres" id="2_hu31w"]
 [ext_resource type="Script" path="res://Characters/Player/AttackBox.gd" id="3_41eav"]
+[ext_resource type="AudioStream" uid="uid://evcljbw5uh3i" path="res://audio/laser.wav" id="4_otw4t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbdd5"]
 radius = 12.0
@@ -25,8 +26,6 @@ rotation = 1.5708
 scale = Vector2(2.375, 2.28125)
 sprite_frames = ExtResource("2_hu31w")
 animation = &"player_attack"
-frame = 17
-frame_progress = 1.0
 
 [node name="PlayerCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qbdd5")
@@ -44,5 +43,13 @@ shape = SubResource("RectangleShape2D_0ui1m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 shape = SubResource("CapsuleShape2D_eh60l")
 
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_otw4t")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

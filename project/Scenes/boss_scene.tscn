@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt1h1jcp2k07f"]
+[gd_scene load_steps=20 format=3 uid="uid://bt1h1jcp2k07f"]
 
 [ext_resource type="Script" path="res://Scenes/BossScene.gd" id="1_3p1kr"]
 [ext_resource type="Texture2D" uid="uid://do6g64qcinv2k" path="res://graphics/ground_tiles.png" id="2_hngfj"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bhdffos1os1au" path="res://Characters/Enemy/boss.tscn" id="5_ac5ng"]
 [ext_resource type="Script" path="res://Scenes/WinScreen.gd" id="6_qflyi"]
 [ext_resource type="FontFile" uid="uid://dcn7dca8xdloc" path="res://fonts/AeroviasBrasilNF.ttf" id="7_0rvei"]
+[ext_resource type="AudioStream" uid="uid://muhrbk8f51qp" path="res://audio/boss_music.mp3" id="8_pjjyb"]
+[ext_resource type="PackedScene" uid="uid://b3lhccocdrf6v" path="res://objects/death_notice.tscn" id="9_sikhl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2vgi"]
 texture = ExtResource("2_hngfj")
@@ -234,6 +236,22 @@ offset_right = 1032.0
 offset_bottom = 223.0
 text = "boss health"
 label_settings = SubResource("LabelSettings_sjdjp")
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pjjyb")
+
+[node name="BossName" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.992157, 0.992157, 0.992157, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_0rvei")
+theme_override_font_sizes/font_size = 125
+text = "Sponge"
+
+[node name="DeathNotice" parent="." instance=ExtResource("9_sikhl")]
+scale = Vector2(4, 4)
 
 [connection signal="boss_defeated" from="Boss" to="WinScreen" method="_on_boss_boss_defeated"]
 [connection signal="timeout" from="LeaveLevelTimer" to="." method="_on_leave_level_timer_timeout"]

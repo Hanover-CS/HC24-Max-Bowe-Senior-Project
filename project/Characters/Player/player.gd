@@ -5,8 +5,11 @@ var enemy_attack_cooldown = true
 var health: int
 var speed: int
 var player_alive = true
+var death_position = Vector2(0,0)
 var boss_in_range = false
 var attacking = false
+var laser_sound_active = false
+var death_sequence_started = false
 var animations
 var enemyAttackCooldown: Timer
 var playerAttackCooldown: Timer
@@ -35,19 +38,31 @@ func _process(delta):
 	global.playerPosition = position
 	if health <= 0:
 		health = 0
-		player_alive = false
-		get_tree().quit()
+		global.playerDead = true
+		if !death_sequence_started:
+			player_death()
+		position = death_position
+		
 	
 # used to identify if an object that enters a certain area is the player
 
 func player():
 	pass
+
+func player_death():
+	death_position = position
+	death_sequence_started = true
+	visible = false
+	$DeathTimer.start()
 	
-# plays player character animations
+# plays player character animations and plays laser sound
 	
 func player_animations():
 	if (attacking):
 		animations.play("player_attack")
+		if (!laser_sound_active):
+			$LaserSound.play()
+			laser_sound_active = true
 	else:
 		animations.play("default")
 		
@@ -71,7 +86,7 @@ func _on_player_hitbox_body_exited(body):
 # starts a player attack
 
 func player_attack():
-	if Input.is_action_just_pressed("player_melee"):
+	if (Input.is_action_just_pressed("player_melee") and attacking == false ):
 		global.player_attacking = true
 		attacking = true
 		playerAttackCooldown.start()
@@ -100,8 +115,9 @@ func _on_enemy_attack_cooldown_timeout():
 # runs when the player's attack cooldown ends, update global singleton
 
 func _on_player_attack_cooldown_timeout():
-	global.player_attacking = false
 	attacking = false
+	global.player_attacking = false
+	laser_sound_active = false
 	
 # both of the following functions start attack cooldown timers
 func createEnemyTimer():
@@ -115,7 +131,6 @@ func createPlayerTimer():
 	playerAttackCooldown.wait_time = 0.75
 	add_child(playerAttackCooldown)
 	playerAttackCooldown.timeout.connect(_on_player_attack_cooldown_timeout)
-	
 
-
-
+func _on_death_timer_timeout():
+	custom_scene_manager.quitGame()

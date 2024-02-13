@@ -16,6 +16,8 @@ var playerHealth = 100
 
 var bossDead = false
 
+var playerDead = false
+
 var playerPosition = Vector2(0,0)
 
 var playerSpeed = 500

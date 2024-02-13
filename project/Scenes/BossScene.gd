@@ -2,21 +2,27 @@ extends Node2D
 
 func _ready():
 	set_health_bar($BossHealthBar, $Boss)
+	$BossMusic.play()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	check_level_passed()
-	health_bar_follow_player()
-	update_health()
+	if !global.playerDead:
+		check_level_passed()
+		health_bar_follow_player()
+		update_health()
+	else:
+		display_death_notice()
 
 # looks to see if the boss has been defeated, then hides its health bar, resets global stats
 # and starts a timer that will close the level when finished
 
 func check_level_passed():
 	if (global.bossDead && $LeaveLevelTimer.is_stopped()):
+		$BossMusic.stop()
 		$BossHealthBar.visible = false
 		$BossHealthLabel.visible = false
+		$BossName.visible = false
 		$LeaveLevelTimer.start()
 		reset_global_stats()
 		
@@ -31,6 +37,10 @@ func reset_global_stats():
 	global.playerHealth = 100
 	global.playerPosition = Vector2(0,0)
 	
+func display_death_notice():
+	$DeathNotice.position = $Player.position
+	$DeathNotice.visible = true
+	
 # sets a character's initial health progress bar value
 
 func set_health_bar(bar: ProgressBar, character: CharacterBody2D):
@@ -40,9 +50,10 @@ func set_health_bar(bar: ProgressBar, character: CharacterBody2D):
 
 func health_bar_follow_player():
 	$PlayerHealthBar.position = $Player.position - Vector2(1000, 800)
-	$PlayerHealthLabel.position = $Player.position - Vector2(1000, 815)
+	$PlayerHealthLabel.position = $Player.position - Vector2(1000, 830)
 	$BossHealthBar.position = $Player.position - Vector2(250, 950)
 	$BossHealthLabel.position = $Player.position - Vector2(250, 975)
+	$BossName.position = $Player.position - Vector2(250, 1100)
 	
 # Updates health bars
 	
